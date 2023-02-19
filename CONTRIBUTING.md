@@ -1,5 +1,3 @@
-[TOC]
-
 # Contributing
 
 1. Clone the project into your workspace.
