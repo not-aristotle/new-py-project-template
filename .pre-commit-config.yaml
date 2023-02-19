@@ -1,0 +1,67 @@
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.4.0
+    hooks:
+      - id: check-docstring-first
+      - id: check-merge-conflict
+      - id: check-case-conflict
+      - id: double-quote-string-fixer
+      - id: detect-aws-credentials
+      - id: detect-private-key
+      - id: end-of-file-fixer
+      - id: trailing-whitespace
+      - id: check-yaml
+      - id: check-toml
+      - id: check-json
+        exclude: ^(.vscode/)
+      - id: pretty-format-json
+        exclude: ^(.vscode/)
+        args: ['--autofix', '--indent=4']
+      - id: name-tests-test
+        args: ['--pytest-test-first']
+      - id: requirements-txt-fixer
+        files: ^requirements\.(in|txt)$
+      - id: check-executables-have-shebangs
+        exclude_types: [python]
+      - id: check-shebang-scripts-are-executable
+      - id: check-symlinks
+      - id: no-commit-to-branch
+        args: ['--branch', 'master']
+
+  - repo: https://github.com/psf/black
+    rev: 23.1.0
+    hooks:
+      - id: black
+
+  - repo: https://github.com/pycqa/isort
+    rev: 5.12.0
+    hooks:
+      - id: isort
+        name: isort (python)
+
+  - repo: https://github.com/jazzband/pip-tools
+    rev: 6.12.2
+    hooks:
+    - id: pip-compile
+      name: pip-compile requirements.in
+      args: [requirements.in]
+      files: ^requirements\.(in|txt)$
+
+  - repo: https://github.com/macisamuele/language-formatters-pre-commit-hooks
+    rev: v2.7.0
+    hooks:
+      - id: pretty-format-ini
+
+  - repo: https://github.com/Lucas-C/pre-commit-hooks
+    rev: v1.4.2
+    hooks:
+      - id: remove-crlf
+      - id: remove-tabs
+
+  - repo: https://github.com/PyCQA/pylint
+    rev: v2.16.2
+    hooks:
+      - id: pylint
+        name: pylint
+        entry: ./venv/bin/pylint
+        args: ['--rcfile=pyproject.toml', '--jobs=0']

@@ -1,0 +1,18 @@
+# This file must ONLY list direct dependencies.
+# You can then generate/update all appropriate dependencies in requirements.txt
+# by running this command:
+#   $ pip-compile requirements.in
+#
+# To sync current virtual environment with updated list of dependencies, run:
+#   $ pip-sync
+#
+# For more information on pip-tools, visit:
+# https://github.com/jazzband/pip-tools
+
+black==23.1.0
+isort==5.12.0
+pip-tools==6.12.2
+pre-commit==3.0.4
+pylint==2.16.2
+pytest==7.2.1
+pytest-dotenv==0.5.2
